@@ -28,4 +28,27 @@ public class Matrix {
     public int hashCode() {
         return Arrays.hashCode(values);
     }
+
+    private boolean orderEquals(Matrix that) {
+        return this.noOfRows() == that.noOfRows() && this.noOfColumns() == that.noOfColumns();
+    }
+
+    public Matrix add(Matrix that) {
+        if (!this.orderEquals(that)) {
+            return null;
+        }
+
+        int noOfRows = this.noOfRows();
+        int noOfColumns = this.noOfColumns();
+
+        double[][] newValues = new double[noOfRows][noOfColumns];
+
+        for (int i = 0; i < noOfRows; i++) {
+            for (int j = 0; j < noOfColumns; j++) {
+                newValues[i][j] = this.values[i][j] + that.values[i][j];
+            }
+        }
+
+        return new Matrix(newValues);
+    }
 }
