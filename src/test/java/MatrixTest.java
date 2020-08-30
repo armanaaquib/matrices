@@ -32,6 +32,6 @@ public class MatrixTest {
         final double[][] values1 = {{1, 2, 3}, {1, 2, 3}};
         final Matrix matrix2 = new Matrix(values1);
 
-        assertNotEquals(matrix, matrix2);
+        assertEquals(matrix, matrix2);
     }
 }
